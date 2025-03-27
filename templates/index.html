@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction Algorithms</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #4895ef;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .page-title {
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .algorithm-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+            background-color: white;
+            height: 100%;
+        }
+        
+        .algorithm-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.2);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+        }
+        
+        .card-text {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .btn-algo {
+            background-color: var(--primary);
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .btn-algo:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-algo i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .btn-algo:hover i {
+            transform: translateX(3px);
+        }
+        
+        .algorithm-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header text-center">
+        <div class="container">
+            <h1 class="page-title mb-3">House Price Prediction</h1>
+            <p class="lead">Machine Learning Algorithms for Real Estate Valuation</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="algorithm-card">
+                    <div class="card-body">
+                        <div class="algorithm-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h5 class="card-title">Simple Linear Regression</h5>
+                        <p class="card-text">Predict house prices based on house size with a linear relationship model.</p>
+                        <a href="/slr" class="btn btn-algo">
+                            Run Algorithm <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="algorithm-card">
+                    <div class="card-body">
+                        <div class="algorithm-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h5 class="card-title">Multiple Linear Regression</h5>
+                        <p class="card-text">Predict house prices using multiple features for more accurate valuation.</p>
+                        <a href="/mlr" class="btn btn-algo">
+                            Run Algorithm <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="algorithm-card">
+                    <div class="card-body">
+                        <div class="algorithm-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h5 class="card-title">Polynomial Regression</h5>
+                        <p class="card-text">Model non-linear relationships between house size and price.</p>
+                        <a href="/polynomial" class="btn btn-algo">
+                            Run Algorithm <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="algorithm-card">
+                    <div class="card-body">
+                        <div class="algorithm-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h5 class="card-title">Logistic Regression</h5>
+                        <p class="card-text">Classify houses into price categories (high or low) based on features.</p>
+                        <a href="/logistic" class="btn btn-algo">
+                            Run Algorithm <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="algorithm-card">
+                    <div class="card-body">
+                        <div class="algorithm-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h5 class="card-title">K-Nearest Neighbors</h5>
+                        <p class="card-text">Classify houses based on similarity to neighboring properties.</p>
+                        <a href="/knn" class="btn btn-algo">
+                            Run Algorithm <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
