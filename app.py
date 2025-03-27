@@ -30,8 +30,11 @@ def simple_linear_regression():
 
     prediction = None
     if request.method == 'POST':
-        house_size = float(request.form['house_size'])
-        prediction = model.predict([[house_size]])[0]
+        try:
+            house_size = float(request.form['house_size'])
+            prediction = model.predict([[house_size]])[0]
+        except Exception as e:
+            prediction = "Error: Please enter valid input"
     
     return render_template('result.html', 
                          algorithm='Simple Linear Regression',
@@ -53,15 +56,18 @@ def multiple_linear_regression():
 
     prediction = None
     if request.method == 'POST':
-        input_data = {
-            'house_size': float(request.form['house_size']),
-            'bedrooms': int(request.form['bedrooms']),
-            'bathrooms': int(request.form['bathrooms']),
-            'age': int(request.form['age']),
-            'location_score': int(request.form['location_score']),
-            'garage_size': int(request.form['garage_size'])
-        }
-        prediction = model.predict([list(input_data.values())])[0]
+        try:
+            input_data = {
+                'house_size': float(request.form['house_size']),
+                'bedrooms': int(request.form['bedrooms']),
+                'bathrooms': int(request.form['bathrooms']),
+                'age': int(request.form['age']),
+                'location_score': int(request.form['location_score']),
+                'garage_size': int(request.form['garage_size'])
+            }
+            prediction = model.predict([list(input_data.values())])[0]
+        except Exception as e:
+            prediction = "Error: Please enter valid input"
     
     return render_template('result.html', 
                          algorithm='Multiple Linear Regression',
@@ -95,9 +101,12 @@ def polynomial_regression():
 
     prediction = None
     if request.method == 'POST':
-        house_size = float(request.form['house_size'])
-        house_size_poly = poly_features.transform([[house_size]])
-        prediction = model.predict(house_size_poly)[0]
+        try:
+            house_size = float(request.form['house_size'])
+            house_size_poly = poly_features.transform([[house_size]])
+            prediction = model.predict(house_size_poly)[0]
+        except Exception as e:
+            prediction = "Error: Please enter valid input"
     
     return render_template('result.html', 
                          algorithm='Polynomial Regression',
@@ -121,16 +130,19 @@ def logistic_regression():
 
     prediction = None
     if request.method == 'POST':
-        input_data = {
-            'house_size': float(request.form['house_size']),
-            'bedrooms': int(request.form['bedrooms']),
-            'bathrooms': int(request.form['bathrooms']),
-            'age': int(request.form['age']),
-            'location_score': int(request.form['location_score']),
-            'garage_size': int(request.form['garage_size'])
-        }
-        prediction = model.predict([list(input_data.values())])[0]
-        prediction = "High Price" if prediction == 1 else "Low Price"
+        try:
+            input_data = {
+                'house_size': float(request.form['house_size']),
+                'bedrooms': int(request.form['bedrooms']),
+                'bathrooms': int(request.form['bathrooms']),
+                'age': int(request.form['age']),
+                'location_score': int(request.form['location_score']),
+                'garage_size': int(request.form['garage_size'])
+            }
+            prediction = model.predict([list(input_data.values())])[0]
+            prediction = "High Price" if prediction == 1 else "Low Price"
+        except Exception as e:
+            prediction = "Error: Please enter valid input"
     
     return render_template('result.html', 
                          algorithm='Logistic Regression',
@@ -161,16 +173,19 @@ def knn():
 
     prediction = None
     if request.method == 'POST':
-        input_data = {
-            'house_size': float(request.form['house_size']),
-            'bedrooms': int(request.form['bedrooms']),
-            'bathrooms': int(request.form['bathrooms']),
-            'age': int(request.form['age']),
-            'location_score': int(request.form['location_score']),
-            'garage_size': int(request.form['garage_size'])
-        }
-        prediction = model.predict([list(input_data.values())])[0]
-        prediction = "High Price" if prediction == 1 else "Low Price"
+        try:
+            input_data = {
+                'house_size': float(request.form['house_size']),
+                'bedrooms': int(request.form['bedrooms']),
+                'bathrooms': int(request.form['bathrooms']),
+                'age': int(request.form['age']),
+                'location_score': int(request.form['location_score']),
+                'garage_size': int(request.form['garage_size'])
+            }
+            prediction = model.predict([list(input_data.values())])[0]
+            prediction = "High Price" if prediction == 1 else "Low Price"
+        except Exception as e:
+            prediction = "Error: Please enter valid input"
     
     return render_template('result.html', 
                          algorithm='K-Nearest Neighbors',
